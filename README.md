@@ -17,6 +17,15 @@ The workflow is:
 6. Answer questions through graph-aware methods.
 7. Route questions with orchestration.
 
+## Practical Challenges
+
+This tutorial is built to show the full pipeline, but real deployments also need to handle practical constraints:
+
+- Latency: extraction, Cypher generation, and orchestration can each trigger multiple model calls, so end-to-end runs may take time.
+- Text quality: source documents are not always clean or well-structured, which affects chunking and downstream extraction quality.
+- Preprocessing: chunk size, overlap, cleaning rules, and document normalization all influence retrieval and graph quality.
+- Database hygiene: repeated runs should target a clean Neo4j database to avoid duplication and stale state.
+
 ## Included Demos
 
 - `entity_extraction_demo.py`: entity and relationship extraction from source text
