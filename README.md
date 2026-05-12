@@ -38,6 +38,16 @@ When moving beyond a demo, additional engineering work is usually needed for:
 - Security: secrets, database credentials, and access control should be managed outside the repo.
 - Scale: throughput, batching, and concurrency become important once documents or users grow.
 
+## What This Demo Does Not Solve
+
+This repository intentionally focuses on the orchestration workflow and does not try to solve every production concern:
+
+- It does not provide a full evaluation harness or benchmark suite.
+- It does not implement distributed ingestion or large-scale indexing.
+- It does not ship production-grade auth, secrets management, or access control.
+- It does not guarantee perfect extraction quality on noisy or domain-specific text.
+- It does not remove the need for human review of the graph schema, prompts, and outputs.
+
 ## Included Demos
 
 - `entity_extraction_demo.py`: entity and relationship extraction from source text
