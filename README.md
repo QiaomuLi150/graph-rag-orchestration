@@ -26,6 +26,18 @@ This tutorial is built to show the full pipeline, but real deployments also need
 - Preprocessing: chunk size, overlap, cleaning rules, and document normalization all influence retrieval and graph quality.
 - Database hygiene: repeated runs should target a clean Neo4j database to avoid duplication and stale state.
 
+## Production Considerations
+
+When moving beyond a demo, additional engineering work is usually needed for:
+
+- Cost control: model calls, retries, and large context windows can add up quickly.
+- Reliability: routing, Cypher repair, and extraction may need stricter guardrails and fallbacks.
+- Evaluation: you will want a repeatable test set to measure routing accuracy and answer quality.
+- Observability: logging, tracing, and run metadata are important for debugging failures and regressions.
+- Schema drift: the graph schema, prompts, and query templates should be versioned together.
+- Security: secrets, database credentials, and access control should be managed outside the repo.
+- Scale: throughput, batching, and concurrency become important once documents or users grow.
+
 ## Included Demos
 
 - `entity_extraction_demo.py`: entity and relationship extraction from source text
