@@ -1,36 +1,41 @@
 # Graph RAG Orchestration
 
-This repository contains a compact tutorial bundle for a graph-based RAG system built on top of Neo4j and OpenAI models. It is organized as three demos plus one integrated notebook that walks through the full workflow end to end.
+This repository is a compact tutorial bundle for a graph-based RAG system built on Neo4j and OpenAI models.
+It presents the full pipeline from source text to graph construction to question answering, with a notebook that
+ties the pieces together and three scripts that demonstrate the main stages.
 
-## What is included
+## Overview
 
-- `entity_extraction_demo.py`: entity and relationship extraction from source text
-- `cypher_generation_demo.py`: schema-aware Text-to-Cypher generation
-- `graph_orchestration_demo.py`: orchestration logic that routes questions to the best available method
-- `integrated_graph_rag_demo.ipynb`: the full tutorial notebook that connects the complete pipeline
-- `extraction_tools.py`, `cypher_generation.py`, `graph_tools.py`, `neo4j_schema.py`, `runtime.py`: supporting modules
+![Graph RAG pipeline](assets/pipeline.svg)
 
-## System Overview
+The system follows a simple flow:
 
-The tutorial shows a complete graph RAG workflow:
-
-1. Download or load source text.
+1. Load or download source text.
 2. Clean and chunk the text.
 3. Extract entities and relationships.
 4. Store the graph in a dedicated Neo4j database.
-5. Summarize entities, relationships, and communities.
-6. Build embeddings and vector indexes.
-7. Answer questions through multiple graph-based methods.
-8. Compare orchestration modes and question-answering strategies.
+5. Build summaries, embeddings, and retrieval indexes.
+6. Answer questions through graph-aware methods.
+7. Route questions with orchestration.
+
+## What’s Included
+
+- `entity_extraction_demo.py`: entity and relationship extraction from source text
+- `cypher_generation_demo.py`: schema-aware Text-to-Cypher generation
+- `graph_orchestration_demo.py`: orchestration logic that selects the best question-answering method
+- `integrated_graph_rag_demo.ipynb`: the end-to-end tutorial notebook
+- `extraction_tools.py`, `cypher_generation.py`, `graph_tools.py`, `neo4j_schema.py`, `runtime.py`: supporting modules
 
 ## Orchestration Modes
 
+![Orchestration modes](assets/orchestration_modes.svg)
+
 The orchestration layer provides two modes:
 
-- `agentic`: keeps the original multi-step loop with question rewriting, routing, critique, and answer synthesis.
-- `stable`: uses the same core routing path but skips the extra rewrite/critique loop for a lighter and more predictable run.
+- `agentic`: the original multi-step loop with question rewriting, routing, critique, and synthesis.
+- `stable`: the lighter mode that keeps the same routing path but skips the extra rewrite/critique loop.
 
-Both modes share the same base methods and the same Neo4j-backed data, so the difference is in control flow rather than in graph functionality.
+Both modes use the same graph-backed data and the same base methods. The difference is control flow.
 
 ## Question Answering Methods
 
@@ -44,7 +49,7 @@ The tutorial compares these methods:
 
 ## Requirements
 
-Install the Python dependencies listed in `requirements.txt`.
+Install the Python dependencies in `requirements.txt`.
 
 You also need:
 
@@ -54,16 +59,16 @@ You also need:
 
 ## Configuration
 
-The demos expect these environment variables:
+Set these environment variables before running the demos:
 
 - `OPENAI_API_KEY`
 - `NEO4J_URI`
 - `NEO4J_USERNAME`
 - `NEO4J_PASSWORD`
 
-## How to run
+## How to Run
 
-Typical workflow:
+Run the individual demos directly:
 
 ```bash
 python entity_extraction_demo.py
@@ -71,16 +76,18 @@ python cypher_generation_demo.py
 python graph_orchestration_demo.py
 ```
 
-For the notebook tutorial, open `integrated_graph_rag_demo.ipynb` in Jupyter and run the cells top to bottom.
+Open `integrated_graph_rag_demo.ipynb` in Jupyter to follow the complete tutorial step by step.
 
-## Repo Layout
+## Repository Layout
 
 - `integrated_graph_rag_demo.ipynb`: full tutorial notebook
 - `entity_extraction_demo.py`: extraction demo
 - `cypher_generation_demo.py`: Cypher demo
 - `graph_orchestration_demo.py`: orchestration demo
-- `sample_data/`: small bundled example text
+- `sample_data/`: bundled example text
+- `assets/`: diagrams used in the README
 
 ## Notes
 
-The repository is designed as a public tutorial bundle. The notebook and scripts are intentionally structured so readers can follow the full pipeline from source text to graph construction to question answering.
+This repository is intended as a public tutorial bundle. The code is structured so readers can follow the full
+workflow from source text to graph ingestion to question answering without jumping between unrelated notebooks.

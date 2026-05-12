@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="320" viewBox="0 0 1200 320" role="img" aria-label="Graph RAG pipeline">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#081320"/>
+      <stop offset="100%" stop-color="#13293d"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#17324b"/>
+      <stop offset="100%" stop-color="#1f4461"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L12,6 L0,12 z" fill="#8ed0ff"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="320" rx="28" fill="url(#bg)"/>
+  <text x="60" y="56" fill="#ffffff" font-size="30" font-family="Inter, Arial, sans-serif" font-weight="700">Graph RAG pipeline</text>
+  <text x="60" y="86" fill="#9cc5df" font-size="16" font-family="Inter, Arial, sans-serif">Source text to graph ingestion to question answering</text>
+
+  <g font-family="Inter, Arial, sans-serif" font-weight="600" fill="#ffffff">
+    <rect x="60" y="130" width="160" height="92" rx="18" fill="url(#card)" stroke="#2c5d7f"/>
+    <text x="140" y="166" text-anchor="middle" font-size="18">Source text</text>
+    <text x="140" y="192" text-anchor="middle" font-size="13" fill="#b7dbef">URL, file, document</text>
+
+    <rect x="260" y="130" width="160" height="92" rx="18" fill="url(#card)" stroke="#2c5d7f"/>
+    <text x="340" y="166" text-anchor="middle" font-size="18">Chunking</text>
+    <text x="340" y="192" text-anchor="middle" font-size="13" fill="#b7dbef">clean, split, prep</text>
+
+    <rect x="460" y="130" width="160" height="92" rx="18" fill="url(#card)" stroke="#2c5d7f"/>
+    <text x="540" y="166" text-anchor="middle" font-size="18">Extraction</text>
+    <text x="540" y="192" text-anchor="middle" font-size="13" fill="#b7dbef">entities, relations</text>
+
+    <rect x="660" y="130" width="160" height="92" rx="18" fill="url(#card)" stroke="#2c5d7f"/>
+    <text x="740" y="166" text-anchor="middle" font-size="18">Neo4j graph</text>
+    <text x="740" y="192" text-anchor="middle" font-size="13" fill="#b7dbef">dedicated database</text>
+
+    <rect x="860" y="130" width="160" height="92" rx="18" fill="url(#card)" stroke="#2c5d7f"/>
+    <text x="940" y="166" text-anchor="middle" font-size="18">QA methods</text>
+    <text x="940" y="192" text-anchor="middle" font-size="13" fill="#b7dbef">local, global, Cypher</text>
+
+    <rect x="1060" y="130" width="90" height="92" rx="18" fill="#1f5f8a" stroke="#55b1ff"/>
+    <text x="1105" y="166" text-anchor="middle" font-size="18">Answer</text>
+    <text x="1105" y="192" text-anchor="middle" font-size="13" fill="#d9f0ff">final response</text>
+  </g>
+
+  <g stroke="#8ed0ff" stroke-width="5" fill="none" marker-end="url(#arrow)">
+    <path d="M220 176 H252"/>
+    <path d="M420 176 H452"/>
+    <path d="M620 176 H652"/>
+    <path d="M820 176 H852"/>
+    <path d="M1020 176 H1052"/>
+  </g>
+</svg>
