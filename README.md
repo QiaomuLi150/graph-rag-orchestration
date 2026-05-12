@@ -1,14 +1,13 @@
 # Graph RAG Orchestration
 
-This repository is a compact tutorial bundle for a graph-based RAG system built on Neo4j and OpenAI models.
-It presents the full pipeline from source text to graph construction to question answering, with a notebook that
-ties the pieces together and three scripts that demonstrate the main stages.
+Graph RAG Orchestration is a compact tutorial repository for building and querying a Neo4j-backed graph RAG system with OpenAI models.
+It covers the full workflow from source text to graph construction to question answering, with a notebook and three focused demos that mirror the major stages.
 
-## Overview
+## Pipeline Overview
 
 ![Graph RAG pipeline](assets/pipeline.svg)
 
-The system follows a simple flow:
+The workflow is:
 
 1. Load or download source text.
 2. Clean and chunk the text.
@@ -18,13 +17,13 @@ The system follows a simple flow:
 6. Answer questions through graph-aware methods.
 7. Route questions with orchestration.
 
-## What’s Included
+## Included Demos
 
 - `entity_extraction_demo.py`: entity and relationship extraction from source text
 - `cypher_generation_demo.py`: schema-aware Text-to-Cypher generation
 - `graph_orchestration_demo.py`: orchestration logic that selects the best question-answering method
 - `integrated_graph_rag_demo.ipynb`: the end-to-end tutorial notebook
-- `extraction_tools.py`, `cypher_generation.py`, `graph_tools.py`, `neo4j_schema.py`, `runtime.py`: supporting modules
+- `extraction_tools.py`, `cypher_generation.py`, `graph_tools.py`, `neo4j_schema.py`, `runtime.py`: shared support modules
 
 ## Orchestration Modes
 
@@ -33,11 +32,11 @@ The system follows a simple flow:
 The orchestration layer provides two modes:
 
 - `agentic`: the original multi-step loop with question rewriting, routing, critique, and synthesis.
-- `stable`: the lighter mode that keeps the same routing path but skips the extra rewrite/critique loop.
+- `stable`: a lighter mode that keeps the same routing path but skips the extra rewrite/critique loop.
 
-Both modes use the same graph-backed data and the same base methods. The difference is control flow.
+Both modes use the same graph-backed data and the same base methods. The difference is control flow, not capability.
 
-## Question Answering Methods
+## Question-Answering Methods
 
 The tutorial compares these methods:
 
@@ -49,7 +48,7 @@ The tutorial compares these methods:
 
 ## Requirements
 
-Install the Python dependencies in `requirements.txt`.
+Install the Python dependencies listed in `requirements.txt`.
 
 You also need:
 
@@ -66,7 +65,7 @@ Set these environment variables before running the demos:
 - `NEO4J_USERNAME`
 - `NEO4J_PASSWORD`
 
-## How to Run
+## Running the Demos
 
 Run the individual demos directly:
 
@@ -89,5 +88,4 @@ Open `integrated_graph_rag_demo.ipynb` in Jupyter to follow the complete tutoria
 
 ## Notes
 
-This repository is intended as a public tutorial bundle. The code is structured so readers can follow the full
-workflow from source text to graph ingestion to question answering without jumping between unrelated notebooks.
+This repository is intended as a public tutorial bundle. The code is organized so readers can follow the full workflow from source text to graph ingestion to question answering without jumping between unrelated notebooks.
